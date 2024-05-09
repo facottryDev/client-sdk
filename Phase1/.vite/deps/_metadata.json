@@ -1,0 +1,118 @@
+{
+  "hash": "f259be4a",
+  "configHash": "21bb0e76",
+  "lockfileHash": "e3b0c442",
+  "browserHash": "7d601861",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "a0b8e793",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "8b40b192",
+      "needsInterop": true
+    },
+    "react-icons/io5": {
+      "src": "../../node_modules/react-icons/io5/index.mjs",
+      "file": "react-icons_io5.js",
+      "fileHash": "37c0d00f",
+      "needsInterop": false
+    },
+    "react-icons/md": {
+      "src": "../../node_modules/react-icons/md/index.mjs",
+      "file": "react-icons_md.js",
+      "fileHash": "f8a8c053",
+      "needsInterop": false
+    },
+    "react-icons/ri": {
+      "src": "../../node_modules/react-icons/ri/index.mjs",
+      "file": "react-icons_ri.js",
+      "fileHash": "e224469d",
+      "needsInterop": false
+    },
+    "react-icons/rx": {
+      "src": "../../node_modules/react-icons/rx/index.mjs",
+      "file": "react-icons_rx.js",
+      "fileHash": "9a4fcb69",
+      "needsInterop": false
+    },
+    "react-loading-skeleton": {
+      "src": "../../node_modules/react-loading-skeleton/dist/index.js",
+      "file": "react-loading-skeleton.js",
+      "fileHash": "02ac52f3",
+      "needsInterop": false
+    },
+    "react-player": {
+      "src": "../../node_modules/react-player/lib/index.js",
+      "file": "react-player.js",
+      "fileHash": "75e35b0e",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "97446104",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "Twitch-4BTNJXPC": {
+      "file": "Twitch-4BTNJXPC.js"
+    },
+    "DailyMotion-JUXZZ72C": {
+      "file": "DailyMotion-JUXZZ72C.js"
+    },
+    "Mixcloud-GKPEF6XU": {
+      "file": "Mixcloud-GKPEF6XU.js"
+    },
+    "Vidyard-N3J67XB4": {
+      "file": "Vidyard-N3J67XB4.js"
+    },
+    "Kaltura-VLLQ54MI": {
+      "file": "Kaltura-VLLQ54MI.js"
+    },
+    "FilePlayer-WRSI5G46": {
+      "file": "FilePlayer-WRSI5G46.js"
+    },
+    "Preview-K4EJTHXB": {
+      "file": "Preview-K4EJTHXB.js"
+    },
+    "YouTube-FRJSSIUM": {
+      "file": "YouTube-FRJSSIUM.js"
+    },
+    "SoundCloud-ZFKS2PEN": {
+      "file": "SoundCloud-ZFKS2PEN.js"
+    },
+    "Vimeo-MOJBIT2Y": {
+      "file": "Vimeo-MOJBIT2Y.js"
+    },
+    "Mux-3WKEJVOU": {
+      "file": "Mux-3WKEJVOU.js"
+    },
+    "Facebook-3ACUEETF": {
+      "file": "Facebook-3ACUEETF.js"
+    },
+    "Streamable-GE4EN3AD": {
+      "file": "Streamable-GE4EN3AD.js"
+    },
+    "Wistia-JJSBNIAM": {
+      "file": "Wistia-JJSBNIAM.js"
+    },
+    "chunk-Q7OAN4WI": {
+      "file": "chunk-Q7OAN4WI.js"
+    },
+    "chunk-KJUJBIHA": {
+      "file": "chunk-KJUJBIHA.js"
+    },
+    "chunk-XYFZQD7W": {
+      "file": "chunk-XYFZQD7W.js"
+    },
+    "chunk-W4VDMLRG": {
+      "file": "chunk-W4VDMLRG.js"
+    }
+  }
+}
