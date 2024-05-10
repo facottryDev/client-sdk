@@ -4,10 +4,23 @@ export function fetchMovies(url, callback) {
       if (!res.ok) {
         throw new Error("Network response was not ok");
       }
-      console.log("result for my freakin id");
       return res.json();
     })
     .then((data) => callback(data.results))
+    .catch((error) => {
+      console.error("Error fetching movies:", error);
+    });
+}
+
+export function fetchMovies2(url, callback) {
+  fetch(url)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return res.json();
+    })
+    .then((data) => callback(data))
     .catch((error) => {
       console.error("Error fetching movies:", error);
     });
@@ -37,10 +50,11 @@ export function getSimilarMovies(value, callback) {
   fetchMovies(url, callback);
 }
 export function getById(id, callback) {
-  console.log("inside this function");
+  // console.log("inside this function");
   const apiKey = import.meta.env.VITE_API_KEY;
   const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
-  fetchMovies(url, callback);
+  // console.log("test", url);
+  fetchMovies2(url, callback);
 }
 
 export const CLIENT_API = {

@@ -19,8 +19,15 @@ const Details = () => {
   }, [slides]);
 
   useEffect(() => {
+    var similarMovies;
+    CLIENT_API.getById(id, (movieData2) => {
+      similarMovies = movieData2;
+      // console.log("id", id);
+      // console.log("test2", movieData2);
+    });
     CLIENT_API.getSimilarMovies(id, (movieData) => {
-      setSlides(movieData);
+      // console.log("movie", movieData);
+      setSlides([similarMovies, ...movieData]);
     });
   }, [id]);
 

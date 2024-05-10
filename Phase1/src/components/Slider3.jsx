@@ -37,6 +37,7 @@ const Slider3 = ({
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const sliderRef = useRef(null);
   const [focusedIndex, setFocusedIndex] = useState(-1);
+  const [isFocused, setIsFocused] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const handleMovieClick = (movie) => {
@@ -89,20 +90,28 @@ const Slider3 = ({
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
   };
-
   useEffect(() => {
     if (selectedIndex === 2) {
       setFocusedIndex(0);
+      setIsFocused(true);
     } else if (selectedIndex === 1 || selectedIndex === 0) {
-      setFocusedIndex(0);
+      setFocusedIndex(-1);
+      setIsFocused(false);
     }
   }, [selectedIndex]);
+
+  useEffect(() => {
+    if (focusedIndex === -1) {
+      setFocusedIndex(0);
+    }
+  }, [focusedIndex]);
 
   const handleKeyDownSlider = (e) => {
     if (selectedIndex === 2) {
       switch (e.key) {
         case "ArrowUp":
           setSelectedIndex(1);
+          setIsFocused(false);
           break;
         case "ArrowLeft":
           handlePrev();
@@ -170,7 +179,7 @@ const Slider3 = ({
             <div
               key={index}
               className={` flex-1 relative rounded-xl ${
-                index === focusedIndex
+                index === focusedIndex && isFocused
                   ? "transform scale-105 transition-all duration-500 ease-in-out"
                   : ""
               }`}

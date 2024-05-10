@@ -118,7 +118,7 @@ const Hero = ({ movie, selectedIndex, setSelectedIndex }) => {
 
               <div className={`flex flex-row space-x-8 pt-16 text-xl `}>
                 <div
-                  className={` w-full ${
+                  className={`w-full ${
                     loading ? "bg-gray-400 animate-pulse rounded-xl" : ""
                   } `}
                 >
@@ -143,7 +143,7 @@ const Hero = ({ movie, selectedIndex, setSelectedIndex }) => {
                   }`}
                 >
                   <button
-                    className={`bg-[#373737] p-4 text-white rounded-xl ${
+                    className={`bg-[#373737] p-4 w-full text-white flex items-center justify-center rounded-xl ${
                       index === 1
                         ? "bg-[#545454] transform scale-110 transition-all duration-500 ease-in-out"
                         : ""
