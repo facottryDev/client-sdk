@@ -82,67 +82,80 @@ const Hero = ({ movie, selectedIndex, setSelectedIndex }) => {
 
           {/* title, desc, imdb, no. of streams, play and watch trailer button */}
           <div className=" bg-gradient-to-b from-transparent to-[#0F1014] w-full h-auto text-white absolute bottom-0">
-            <div className="ml-32 w-[30%] mb-16 ">
-              {loading && (
-                <div className=" h-12 bg-gray-400 animate-pulse rounded-lg"></div>
-              )}
-              <h1
-                className={`text-5xl font-semibold w-full uppercase transition-opacity duration-500 ${
-                  loading ? "opacity-0" : "opacity-100"
-                }`}
-                onLoad={handleImageLoad}
-              >
-                {movie.title}
-              </h1>
-
-              {loading && (
-                <div className="h-40 bg-gray-400 animate-pulse rounded-lg"></div>
-              )}
+            <div className="ml-32 w-[30%] mb-40">
               <div
-                className={`transition-opacity duration-500 ${
-                  loading ? "opacity-0" : "opacity-100"
+                className={`mb-4 ${
+                  loading ? " bg-gray-400 animate-pulse rounded-lg" : ""
                 }`}
-                onLoad={handleImageLoad}
               >
-                <p className={`text-[18px] py-4 text-[#CDCDCD] `}>
-                  {movie.overview}
-                </p>
-                <p className="text-[12px] py-2">IMDB: {movie.vote_average}</p>
-                <p className="text-[12px]">Streams: {movie.popularity}</p>
+                <h1
+                  className={`text-5xl font-semibold w-full uppercase transition-opacity duration-500 ${
+                    loading ? "opacity-0" : "opacity-100"
+                  }`}
+                  onLoad={handleImageLoad}
+                >
+                  {movie.title}
+                </h1>
               </div>
 
-              <div className={`flex flex-row space-x-8 py-8 text-xl `}>
-                {loading && (
-                  <div className="p-2 w-full h-10 bg-gray-400 animate-pulse rounded-xl"></div>
-                )}
-                <Link
-                  to={`/watch/${movie.id}`}
-                  className={`bg-white text-black font-bold p-2 w-full flex items-center justify-center rounded-xl ${
-                    index === 0
-                      ? "transform scale-110 transition-all duration-500 ease-in-out"
-                      : ""
-                  } transition-opacity duration-500 ${
+              <div
+                className={` ${
+                  loading ? "bg-gray-400 animate-pulse rounded-lg" : ""
+                }`}
+              >
+                <div
+                  className={`transition-opacity duration-500 ${
                     loading ? "opacity-0" : "opacity-100"
                   }`}
                   onLoad={handleImageLoad}
                 >
-                  Play
-                </Link>
-                {loading && (
-                  <div className="p-2 px-4 h-10 bg-gray-400 animate-pulse rounded-xl"></div>
-                )}
-                <button
-                  className={`bg-[#373737] text-white p-2 px-4 rounded-xl ${
-                    index === 1
-                      ? "bg-[#545454] transform scale-110 transition-all duration-500 ease-in-out"
-                      : ""
-                  } transition-opacity duration-500 ${
-                    loading ? "opacity-0" : "opacity-100"
-                  }`}
-                  onLoad={handleImageLoad}
+                  <p className={`text-[18px] py-4 text-[#CDCDCD] `}>
+                    {movie.overview}
+                  </p>
+                  <p className="text-[12px] py-2">IMDB: {movie.vote_average}</p>
+                  <p className="text-[12px]">Streams: {movie.popularity}</p>
+                </div>
+              </div>
+
+              <div className={`flex flex-row space-x-8 pt-16 text-xl `}>
+                <div
+                  className={` w-full ${
+                    loading ? "bg-gray-400 animate-pulse rounded-xl" : ""
+                  } `}
                 >
-                  <RxPlus />
-                </button>
+                  <Link
+                    to={`/watch/${movie.id}`}
+                    className={`bg-white text-black font-bold p-2 w-full flex items-center justify-center rounded-xl ${
+                      index === 0
+                        ? "transform scale-110 transition-all duration-500 ease-in-out"
+                        : ""
+                    } transition-opacity duration-500 ${
+                      loading ? "opacity-0" : "opacity-100"
+                    }`}
+                    onLoad={handleImageLoad}
+                  >
+                    Play
+                  </Link>
+                </div>
+
+                <div
+                  className={`h-10 ${
+                    loading ? "bg-gray-400 animate-pulse rounded-xl" : ""
+                  }`}
+                >
+                  <button
+                    className={`bg-[#373737] p-2 px-4 text-white rounded-xl ${
+                      index === 1
+                        ? "bg-[#545454] transform scale-110 transition-all duration-500 ease-in-out"
+                        : ""
+                    } transition-opacity duration-500 ${
+                      loading ? "opacity-0" : "opacity-100"
+                    }`}
+                    onLoad={handleImageLoad}
+                  >
+                    <RxPlus />
+                  </button>
+                </div>
               </div>
               {/* </div> */}
             </div>
