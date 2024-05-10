@@ -26,6 +26,7 @@ const Hero = ({ movie, selectedIndex, setSelectedIndex }) => {
     } else if (selectedIndex === 2 || selectedIndex === 0) {
       setIndex(-1);
     }
+
   }, [selectedIndex]);
 
   const handleKeyDown = (e) => {
@@ -57,9 +58,7 @@ const Hero = ({ movie, selectedIndex, setSelectedIndex }) => {
   }, [selectedIndex, handleKeyDown]);
 
   const handleImageLoad = () => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 5000);
+    setLoading(false);
   };
 
   return (
@@ -139,12 +138,12 @@ const Hero = ({ movie, selectedIndex, setSelectedIndex }) => {
                 </div>
 
                 <div
-                  className={`h-10 ${
+                  className={` ${
                     loading ? "bg-gray-400 animate-pulse rounded-xl" : ""
                   }`}
                 >
                   <button
-                    className={`bg-[#373737] p-2 px-4 text-white rounded-xl ${
+                    className={`bg-[#373737] p-4 text-white rounded-xl ${
                       index === 1
                         ? "bg-[#545454] transform scale-110 transition-all duration-500 ease-in-out"
                         : ""
@@ -157,7 +156,6 @@ const Hero = ({ movie, selectedIndex, setSelectedIndex }) => {
                   </button>
                 </div>
               </div>
-              {/* </div> */}
             </div>
           </div>
         </div>

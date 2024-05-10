@@ -94,9 +94,10 @@ const Slider3 = ({
     if (selectedIndex === 2) {
       setFocusedIndex(0);
     } else if (selectedIndex === 1 || selectedIndex === 0) {
-      setFocusedIndex(-1);
+      setFocusedIndex(0);
     }
   }, [selectedIndex]);
+
   const handleKeyDownSlider = (e) => {
     if (selectedIndex === 2) {
       switch (e.key) {
@@ -113,7 +114,6 @@ const Slider3 = ({
           if (focusedIndex !== -1) {
             const selectedSlide = slides[currentIndex + focusedIndex];
             if (selectedSlide) {
-              // Redirect to details page
               window.location.href = `/details/${selectedSlide.id}`;
             }
           }
@@ -144,14 +144,12 @@ const Slider3 = ({
   }, [currentIndex, focusedIndex]);
 
   // // console.log("selected Index:", selectedIndex);
-  // console.log("focused Index:", focusedIndex);
+  console.log("focused Index:", focusedIndex);
   // console.log("current Index:", currentIndex);
   // console.log(slides);
 
   const handleImageLoad = () => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 5000);
+    setLoading(false);
   };
 
   return (
