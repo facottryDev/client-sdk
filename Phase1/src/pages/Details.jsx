@@ -15,10 +15,6 @@ const Details = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-    setSelectedMovie(slides[0]);
-  }, [slides]);
-
-  useEffect(() => {
     var similarMovies;
     CLIENT_API.getById(id, (movieData2) => {
       similarMovies = movieData2;
@@ -30,6 +26,10 @@ const Details = () => {
       setSlides([similarMovies, ...movieData]);
     });
   }, [id]);
+  
+  useEffect(() => {
+    setSelectedMovie(slides[0]);
+  }, [slides]);
 
   return (
     <div className="font-poppins w-full flex flex-col relative items-start justify-center bg-[#0F1014]">
