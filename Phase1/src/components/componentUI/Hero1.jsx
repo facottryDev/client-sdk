@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useHero2Logic from "../componentLogics/HeroLogic";
+import useHeroLogic from "../componentLogics/HeroLogic";
 import { RxPlus } from "react-icons/rx";
 
 const Hero = ({ movie, selectedIndex, setSelectedIndex }) => {
   const { index, loading, handlePrev, handleNext, handleImageLoad } =
-    useHero2Logic({
-      movie,
+    useHeroLogic({
       selectedIndex,
       setSelectedIndex,
     });
@@ -33,7 +32,7 @@ const Hero = ({ movie, selectedIndex, setSelectedIndex }) => {
           <div className=" bg-gradient-to-b from-transparent to-[#0F1014] w-full h-auto text-white absolute bottom-0">
             <div className="ml-28 w-[30%] mb-28">
               <div
-                className={` ${
+                className={`py-[1vh] mb-[4vh] ${
                   loading ? " bg-gray-400 animate-pulse rounded-lg" : ""
                 }`}
               >

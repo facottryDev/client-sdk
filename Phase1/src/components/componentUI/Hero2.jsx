@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useHero2Logic from "../componentLogics/HeroLogic";
+import useHeroLogic from "../componentLogics/HeroLogic";
 
 const Hero2 = ({ movie, selectedIndex, setSelectedIndex }) => {
   const { index, loading, handlePrev, handleNext, handleImageLoad } =
-    useHero2Logic({
+    useHeroLogic({
       movie,
       selectedIndex,
       setSelectedIndex,

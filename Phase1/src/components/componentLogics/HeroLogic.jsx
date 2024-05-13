@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useHero2Logic = ({ movie, selectedIndex, setSelectedIndex }) => {
+const useHeroLogic = ({ selectedIndex, setSelectedIndex }) => {
   const [index, setIndex] = useState(-1);
   const [loading, setLoading] = useState(true);
 
@@ -66,4 +66,4 @@ const useHero2Logic = ({ movie, selectedIndex, setSelectedIndex }) => {
   };
 };
 
-export default useHero2Logic;
+export default useHeroLogic;

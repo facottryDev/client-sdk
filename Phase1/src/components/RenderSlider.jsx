@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "./componentUI/Slider";
+import Slider1 from "./componentUI/Slider1";
 
 const RenderSlider = (
   slides,
@@ -9,7 +9,7 @@ const RenderSlider = (
   title
 ) => {
   return (
-    <Slider
+    <Slider1
       slides={slides}
       selectedIndex={selectedIndex}
       setSelectedIndex={setSelectedIndex}

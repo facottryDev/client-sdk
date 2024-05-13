@@ -12,7 +12,7 @@ import {
   RiMovie2Fill,
 } from "react-icons/ri";
 
-const Navbar = ({ selectedIndex, setSelectedIndex }) => {
+const Navbar2 = ({ selectedIndex, setSelectedIndex }) => {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const visibleItemsLength = 5;
 
@@ -91,4 +91,4 @@ const Navbar = ({ selectedIndex, setSelectedIndex }) => {
   );
 };
 
-export default Navbar;
+export default Navbar2;

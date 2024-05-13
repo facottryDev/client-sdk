@@ -9,7 +9,7 @@ import {
   RiSlideshow4Line,
 } from "react-icons/ri";
 
-const LeftNav = ({ selectedIndex, setSelectedIndex, isToggled }) => {
+const Navbar1 = ({ selectedIndex, setSelectedIndex }) => {
   const sliderRef = useRef(null);
 
   const [leftNavFocusedIndex, setLeftNavFocusedIndex] = useState(0);
@@ -40,7 +40,7 @@ const LeftNav = ({ selectedIndex, setSelectedIndex, isToggled }) => {
   }, [selectedIndex]);
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (selectedIndex === 0 && !isToggled) {
+      if (selectedIndex === 0) {
         switch (e.key) {
           case "ArrowRight":
             setSelectedIndex(1);
@@ -61,7 +61,7 @@ const LeftNav = ({ selectedIndex, setSelectedIndex, isToggled }) => {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedIndex, isToggled, handlePrev, handleNext, setSelectedIndex]);
+  }, [selectedIndex, handlePrev, handleNext, setSelectedIndex]);
 
   // console.log("left focused index:", leftNavFocusedIndex);
   return (
@@ -118,4 +118,4 @@ const LeftNav = ({ selectedIndex, setSelectedIndex, isToggled }) => {
   );
 };
 
-export default LeftNav;
+export default Navbar1;

@@ -12,6 +12,8 @@ export function fetchMovies(url, callback) {
     });
 }
 
+
+
 export function fetchMovies2(url, callback) {
   fetch(url)
     .then((res) => {
@@ -26,9 +28,19 @@ export function fetchMovies2(url, callback) {
     });
 }
 
+function getBaseUrl() {
+  if (import.meta.env.VITE_USE_PROD === "true")
+    return import.meta.env.VITE_SERVER_PROD_URL;
+  else {
+    return import.meta.env.VITE_SERVER_PREPROD_URL;
+  }
+}
+
 export function getAllMovies(value, callback) {
   const apiKey = import.meta.env.VITE_API_KEY;
-  const url = `https://api.themoviedb.org/3/discover/${value}?api_key=${apiKey}`;
+  const baseUrl = getBaseUrl();
+
+  const url = `${baseUrl}/${value}?api_key=${apiKey}`;
   fetchMovies(url, callback);
 }
 

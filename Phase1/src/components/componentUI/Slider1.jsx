@@ -2,7 +2,7 @@ import React from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import useSliderLogic from "../componentLogics/SliderLogic";
 
-const Slider = ({
+const Slider1 = ({
   slides,
   selectedIndex,
   setSelectedIndex,
@@ -76,4 +76,4 @@ const Slider = ({
   );
 };
 
-export default Slider;
+export default Slider1;

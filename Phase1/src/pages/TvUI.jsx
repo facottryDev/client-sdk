@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Slider from "../../components/componentUI/Slider";
-import Hero from "../../components/componentUI/Hero";
-import LeftNavBar from "../../components/LeftNavBar";
+import Slider1 from "../components/componentUI/Slider1";
+import Hero1 from "../components/componentUI/Hero1";
+import Navbar1 from "../components/componentUI/Navbar1";
 
 const TvShows = () => {
   const [slides, setSlides] = useState([]);
@@ -21,13 +21,13 @@ const TvShows = () => {
 
   return (
     <div>
-      <LeftNavBar />
-      <Hero
+      <Navbar1 />
+      <Hero1
         movie={selectedMovie}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
       />
-      <Slider
+      <Slider1
         slides={slides}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
