@@ -1,36 +1,40 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import Hero from "../components/Hero";
-import Navbar from "../components/Navbar";
-import LeftNavBar from "../components/LeftNavBar";
-import { CLIENT_API } from "../Client/client";
-import RenderSlider from "../components/RenderSlider";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Hero from "../../components/componentUI/Hero";
+import Navbar from "../../components/Navbar";
+import LeftNavBar from "../../components/LeftNavBar";
+import { CLIENT_API } from "../../Client/client";
+import RenderSlider from "../../components/RenderSlider";
 
-const Details = () => {
-  const { id } = useParams();
+const Movie = () => {
   const [slides, setSlides] = useState([]);
+  const [comedyMovies, setComedyMovies] = useState([]);
+  const [trendingMovies, setTrendingMovies] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isToggled, setIsToggled] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [isToggled, setIsToggled] = useState(false);
 
-  useEffect(() => {
-    var similarMovies;
-    CLIENT_API.getById(id, (movieData2) => {
-      similarMovies = movieData2;
-      // console.log("id", id);
-      // console.log("test2", movieData2);
-    });
-    CLIENT_API.getSimilarMovies(id, (movieData) => {
-      // console.log("movie", movieData);
-      setSlides([similarMovies, ...movieData]);
-    });
-  }, [id]);
-  
   useEffect(() => {
     setSelectedMovie(slides[0]);
   }, [slides]);
 
+  useEffect(() => {
+    CLIENT_API.getAllMovies("movie", (movieData) => {
+      setSlides(movieData);
+    });
+
+    CLIENT_API.getMoviesByGenre(35, (comedyData) => {
+      setComedyMovies(comedyData);
+      // console.log(comedyData);
+    });
+
+    CLIENT_API.getTrendingMovies((trendingData) => {
+      setTrendingMovies(trendingData);
+    });
+  }, []);
+
+  console.log("selected index: ", selectedIndex);
+
+  console.log("isToggled: ", isToggled);
   return (
     <div className="font-poppins w-full flex flex-col relative items-start justify-center bg-[#0F1014]">
       {/* toggle button */}
@@ -64,14 +68,30 @@ const Details = () => {
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
         />
-        <div className="flex flex-col items-center space-y-8 z-10">
+        <div className="flex flex-col items-center space-y-8 z-10 ">
           {slides.length > 0 &&
             RenderSlider(
               slides,
               selectedIndex,
               setSelectedIndex,
               setSelectedMovie,
-              "More Like This"
+              "Movies"
+            )}
+          {comedyMovies.length > 0 &&
+            RenderSlider(
+              comedyMovies,
+              selectedIndex,
+              setSelectedIndex,
+              setSelectedMovie,
+              "Comedy Movies"
+            )}
+          {trendingMovies.length > 0 &&
+            RenderSlider(
+              trendingMovies,
+              selectedIndex,
+              setSelectedIndex,
+              setSelectedMovie,
+              "Trending Movies"
             )}
         </div>
       </div>
@@ -79,4 +99,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default Movie;

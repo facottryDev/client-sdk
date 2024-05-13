@@ -7,20 +7,26 @@ import {
   RiUser6Line,
   RiSlideshow4Fill,
   RiSlideshow4Line,
+  RiSearchFill,
+  RiUser6Fill,
+  RiMovie2Fill,
 } from "react-icons/ri";
 
-const Navbar = ({
-  
-  selectedIndex,
-  setSelectedIndex,
-  isToggled,
-}) => {
+const Navbar = ({ selectedIndex, setSelectedIndex }) => {
   const [focusedIndex, setFocusedIndex] = useState(0);
   const visibleItemsLength = 5;
 
   useEffect(() => {
+    if (selectedIndex === 0) {
+      setFocusedIndex(0);
+    } else if (selectedIndex === 2 || selectedIndex === 1) {
+      setFocusedIndex(-1);
+    }
+  }, [selectedIndex]);
+
+  useEffect(() => {
     const handleKeyDownNavbar = (event) => {
-      if (selectedIndex === 0 && isToggled) {
+      if (selectedIndex === 0) {
         if (event.key === "ArrowDown") {
           setSelectedIndex(1);
         } else if (event.key === "ArrowRight") {
@@ -33,7 +39,6 @@ const Navbar = ({
         }
       }
     };
-
     document.addEventListener("keydown", handleKeyDownNavbar);
 
     return () => {
@@ -41,48 +46,45 @@ const Navbar = ({
     };
   }, [selectedIndex]);
 
+  const style = { color: "white", fontSize: "1.5em" };
+
   return (
-    <div className="bg-black absolute z-[1000] top-4 left-4 flex items-center py-4 px-6 rounded-2xl">
-      <div className="flex flex-row items-center space-x-4">
-        <a
-          href="#"
-          className={`text-white ${
-            focusedIndex === 0 ? "bg-gray-500 rounded-full p-2" : ""
-          }`}
-        >
-          <RiUser6Line />
+    <div className="bg-black absolute z-[1000] top-8 left-28 flex items-center px-8 py-4 rounded-3xl">
+      <div className="flex flex-row items-center space-x-8">
+        <a href="#">
+          {focusedIndex === 0 ? (
+            <RiUser6Fill style={style} />
+          ) : (
+            <RiUser6Line style={style} />
+          )}
         </a>
-        <a
-          href="#"
-          className={`text-white ${
-            focusedIndex === 1 ? "bg-gray-500 rounded-full p-2" : ""
-          }`}
-        >
-          <RiSearchLine />
+        <a href="#">
+          {focusedIndex === 1 ? (
+            <RiSearchFill style={style} />
+          ) : (
+            <RiSearchLine style={style} />
+          )}
         </a>
-        <a
-          href="#"
-          className={`text-white ${
-            focusedIndex === 2 ? "bg-gray-500 rounded-full p-2" : ""
-          }`}
-        >
-          <RiHome2Line />
+        <a href="#">
+          {focusedIndex === 2 ? (
+            <RiHome2Fill style={style} />
+          ) : (
+            <RiHome2Line style={style} />
+          )}
         </a>
-        <a
-          href="#"
-          className={`text-white ${
-            focusedIndex === 3 ? "bg-gray-500 rounded-full p-2" : ""
-          }`}
-        >
-          <RiMovie2Line />
+        <a href="#">
+          {focusedIndex === 3 ? (
+            <RiMovie2Fill style={style} />
+          ) : (
+            <RiMovie2Line style={style} />
+          )}
         </a>
-        <a
-          href="#"
-          className={`text-white ${
-            focusedIndex === 4 ? "bg-gray-500 rounded-full p-2" : ""
-          }`}
-        >
-          <RiSlideshow4Line />
+        <a href="#">
+          {focusedIndex === 4 ? (
+            <RiSlideshow4Fill style={style} />
+          ) : (
+            <RiSlideshow4Line style={style} />
+          )}
         </a>
       </div>
     </div>

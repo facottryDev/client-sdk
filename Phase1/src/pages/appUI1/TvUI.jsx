@@ -1,15 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Slider3 from "../components/Slider3";
-import Hero from "../components/Hero";
-import Navbar from "../components/Navbar";
-import LeftNavBar from "../components/LeftNavBar";
+import Slider from "../../components/componentUI/Slider";
+import Hero from "../../components/componentUI/Hero";
+import LeftNavBar from "../../components/LeftNavBar";
 
 const TvShows = () => {
   const [slides, setSlides] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedMovie, setSelectedMovie] = useState(slides[0]);
-  const [navIcons, setNavIcons] = useState([]);
 
   useEffect(() => {
     setSelectedMovie(slides[0]);
@@ -21,9 +19,6 @@ const TvShows = () => {
   }, []);
   console.log("selected index: ", selectedIndex);
 
-  useEffect(() => {
-    setNavIcons(navbarIcons);
-  }, []);
   return (
     <div>
       <LeftNavBar />
@@ -32,7 +27,7 @@ const TvShows = () => {
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
       />
-      <Slider3
+      <Slider
         slides={slides}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}

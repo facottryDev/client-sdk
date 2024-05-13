@@ -1,18 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-/**
- * The function `calculateVisibleSlides` determines the number of visible slides based on the width
- * provided as input.
- * @param {number} width - The `calculateVisibleSlides` function takes a `width` parameter of type
- * number as input. The function calculates the number of visible slides based on the width provided.
- * If the width is greater than 1024, it returns 5 visible slides. If the width is between 750 and 102
- * @returns The function `calculateVisibleSlides` returns the number of visible slides based on the
- * input `width`. The number of visible slides returned is determined by the following conditions:
- * - If the `width` is greater than 1024, it returns 5.
- * - If the `width` is greater than 750 but less than or equal to 1024, it returns 3.
- * - If the
- */
 const calculateVisibleSlides = (width) => {
   if (width > 1024) {
     return 5;
@@ -25,7 +13,7 @@ const calculateVisibleSlides = (width) => {
   }
 };
 
-const Slider3 = ({
+const Slider = ({
   slides,
   selectedIndex,
   setSelectedIndex,
@@ -215,4 +203,4 @@ const Slider3 = ({
   );
 };
 
-export default Slider3;
+export default Slider;

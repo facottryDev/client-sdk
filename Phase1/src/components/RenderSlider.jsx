@@ -1,9 +1,15 @@
 import React from "react";
-import Slider3 from "./Slider3";
+import Slider from "./componentUI/Slider";
 
-const RenderSlider = (slides, selectedIndex, setSelectedIndex, setSelectedMovie, title) => {
+const RenderSlider = (
+  slides,
+  selectedIndex,
+  setSelectedIndex,
+  setSelectedMovie,
+  title
+) => {
   return (
-    <Slider3
+    <Slider
       slides={slides}
       selectedIndex={selectedIndex}
       setSelectedIndex={setSelectedIndex}

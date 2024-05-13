@@ -3,7 +3,6 @@ import { IoChevronBackOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import SearchBar from "./SearchBar";
-import Slider3 from "./Slider3";
 
 const ResponsivePlayer = ({ type }) => {
   // const [slides, setSlides] = useState([]);
