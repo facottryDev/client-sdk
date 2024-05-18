@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CLIENT_API } from "../Client/client";
+import { fetchDataFromAPI } from "../TanslateLayer.js";
 import DisplayNavbar from "../components/displayComponents/DisplayNavbar";
 import DisplayHero from "../components/displayComponents/DisplayHero";
 import DisplaySlider from "../components/displayComponents/DisplaySlider";
@@ -13,11 +13,9 @@ const Home = ({ appConfig }) => {
     setSelectedMovie(slides[0]);
   }, [slides]);
   useEffect(() => {
-    CLIENT_API.getAllMovies("movie", (movieData) => {
-      setSlides(movieData);
+    fetchDataFromAPI("TMDB", "All Movies", "movie").then((data) => {
+      setSlides(data);
     });
-
-    // TODO: Fetch mapping corresponding to the projectId and osver etc
   }, []);
   //popular releases, top 10, popular shows, 2010 movies, romantic movies, comedy movies, trending movies, popular genres
 
@@ -27,7 +25,7 @@ const Home = ({ appConfig }) => {
         <DisplayNavbar
           selectedIndex={selectedIndex}
           setSelectedIndex={setSelectedIndex}
-          navBarType={appConfig?.navBarType ? appConfig.navBarType : "N1"}
+          navBarType={appConfig?.navBarType ? appConfig.navBarType : "N2"}
         />
       </div>
       <DisplayHero

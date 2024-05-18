@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Hero1 from "../components/componentUI/Hero1";
-import { CLIENT_API } from "../Client/client";
+import { fetchDataFromAPI } from "../TanslateLayer";
 import RenderSlider from "../components/RenderSlider";
 import { useParams } from "react-router-dom";
 import Navbar1 from "../components/componentUI/Navbar1";
@@ -14,13 +14,13 @@ const Details = () => {
 
   useEffect(() => {
     var similarMovies;
-    CLIENT_API.getById(id, (movieData2) => {
-      similarMovies = movieData2;
-      // console.log("id", id);
-      // console.log("test2", movieData2);
+    fetchDataFromAPI("TMDB", "Search Movie", "movie", id).then((data) => {
+      similarMovies = data;
+      console.log("data", data);
+      console.log("id:", id);
     });
-    CLIENT_API.getSimilarMovies(id, (movieData) => {
-      // console.log("movie", movieData);
+    fetchDataFromAPI("TMDB", "Similar Movies", "movie", id).then((movieData) => {
+      console.log("movieData:", movieData);
       setSlides([similarMovies, ...movieData]);
     });
   }, [id]);

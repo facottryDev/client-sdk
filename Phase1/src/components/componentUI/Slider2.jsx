@@ -52,7 +52,7 @@ const Slider2 = ({
                   <div className="absolute aspect-video bg-gray-400 animate-pulse"></div>
                 )}
                 <img
-                  src={`https://image.tmdb.org/t/p/w500/${slide.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w500/${slide.thumbnail}`}
                   alt=""
                   className={`aspect-video object-cover transition-opacity duration-500 ${
                     loading ? "opacity-0" : "opacity-100"

@@ -12,8 +12,6 @@ export function fetchMovies(url, callback) {
     });
 }
 
-
-
 export function fetchMovies2(url, callback) {
   fetch(url)
     .then((res) => {
@@ -40,7 +38,7 @@ export function getAllMovies(value, callback) {
   const apiKey = import.meta.env.VITE_API_KEY;
   const baseUrl = getBaseUrl();
 
-  const url = `${baseUrl}/${value}?api_key=${apiKey}`;
+  const url = `${baseUrl}/discover/${value}?api_key=${apiKey}`;
   fetchMovies(url, callback);
 }
 
@@ -76,3 +74,4 @@ export const CLIENT_API = {
   getSimilarMovies: getSimilarMovies,
   getById: getById,
 };
+

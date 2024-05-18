@@ -52,7 +52,7 @@ const Slider1 = ({
                   <div className="absolute w-full h-full rounded-xl bg-gray-400 animate-pulse"></div>
                 )}
                 <img
-                  src={`https://image.tmdb.org/t/p/w500/${slide.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w500/${slide.thumbnail}`}
                   alt=""
                   className={`w-full h-full object-cover rounded-xl transition-opacity duration-500 ${
                     loading ? "opacity-0" : "opacity-100"

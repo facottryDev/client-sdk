@@ -20,7 +20,7 @@ const Hero2 = ({ movie, selectedIndex, setSelectedIndex }) => {
             <div className="absolute inset-0 w-full p-12 rounded-xl bg-gray-500 animate-pulse"></div>
           )}
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w500/${movie.backdropImage}`}
             alt="loaded content"
             className={`w-full aspect-[2.2] object-cover transition-opacity duration-500 ${
               loading ? "opacity-0" : "opacity-100"
@@ -60,8 +60,8 @@ const Hero2 = ({ movie, selectedIndex, setSelectedIndex }) => {
                   <p className={` text-[#CDCDCD] line-clamp-5 `}>
                     {movie.overview}
                   </p>
-                  <p className="text-[12px] py-4">IMDB: {movie.vote_average}</p>
-                  <p className="text-[12px]">Streams: {movie.popularity}</p>
+                  <p className="text-[12px] py-4">IMDB: {movie.imdb}</p>
+                  <p className="text-[12px]">Streams: {movie.streams}</p>
                 </div>
               </div>
 

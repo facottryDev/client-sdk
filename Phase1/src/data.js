@@ -11,7 +11,7 @@ export const Configs = [
       name: "H1N1S1",
       desc: "",
       params: {
-        navBarType: "N2",
+        navBarType: "N1",
         heroType: "H2",
         sliderType: "S1",
       },

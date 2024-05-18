@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Slider1 from "../components/componentUI/Slider1";
 import Hero1 from "../components/componentUI/Hero1";
 import Navbar1 from "../components/componentUI/Navbar1";
+import { fetchDataFromAPI } from "../TanslateLayer";
 
 const TvShows = () => {
   const [slides, setSlides] = useState([]);
@@ -13,15 +14,14 @@ const TvShows = () => {
     setSelectedMovie(slides[0]);
   }, [slides]);
   useEffect(() => {
-    window.CLIENT_API.getMovieData("tv", (tvData) => {
-      setSlides(tvData);
+    fetchDataFromAPI("TMDB", "All Shows", "tv").then((data) => {
+      setSlides(data);
     });
   }, []);
-  console.log("selected index: ", selectedIndex);
 
   return (
     <div>
-      <Navbar1 />
+      {/* <Navbar1 /> */}
       <Hero1
         movie={selectedMovie}
         selectedIndex={selectedIndex}

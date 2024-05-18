@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Hero1 from "../components/componentUI/Hero1";
-import { CLIENT_API } from "../Client/client";
 import RenderSlider from "../components/RenderSlider";
 import Navbar1 from "../components/componentUI/Navbar1";
+import { fetchDataFromAPI } from "../TanslateLayer";
 
 const Movie = () => {
   const [slides, setSlides] = useState([]);
@@ -16,17 +16,19 @@ const Movie = () => {
   }, [slides]);
 
   useEffect(() => {
-    CLIENT_API.getAllMovies("movie", (movieData) => {
-      setSlides(movieData);
+    fetchDataFromAPI("TMDB", "All Movies", "movie").then((data) => {
+      setSlides(data);
     });
-
-    CLIENT_API.getMoviesByGenre(35, (comedyData) => {
-      setComedyMovies(comedyData);
-    });
-
-    CLIENT_API.getTrendingMovies((trendingData) => {
-      setTrendingMovies(trendingData);
-    });
+    fetchDataFromAPI("TMDB", "Comedy Movies", "movie", null, 35).then(
+      (comedyData) => {
+        setComedyMovies(comedyData);
+      }
+    );
+    fetchDataFromAPI("TMDB", "Trending Movies", "movie").then(
+      (trendingData) => {
+        setTrendingMovies(trendingData);
+      }
+    );
   }, []);
 
   console.log("selected index: ", selectedIndex);
